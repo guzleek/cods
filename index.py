@@ -1,1 +1,3 @@
-print ("...")
+a = LL
+
+print ("a")

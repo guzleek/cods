@@ -4,40 +4,67 @@ import random
 from time import sleep
 from rich.progress import track
 
-def do_step(step):
+def progress_bar(step):
     sleep(random.uniform(0.01, 0.1))
-
-for step in track(range(100), description= "Wait please: "):
-    do_step(step)
+for step in track(range(100), description= "Please wait..."):
+    progress_bar(step)
 print(Fore.MAGENTA)
-d = int(input("Enter the password for start: "))
+quest = int(input("Enter the password to start: "))
 
 while True:
 
-    if d != 1378:
+    if quest != 6262:
         print(Fore.RED)
-        print("\nError password: ")
+        print("\nError password..")
         print(Fore.MAGENTA)
-        d = int(input("\nRepeat password: "))
+        quest = int(input("\nRepeat password: "))
         continue
-    elif d == 1378:
+    elif quest == 6262:
         print(Fore.GREEN)
-        print("Correct password! ")
-        print(Fore.MAGENTA)
-        print("\nStart programs...\n" + " Load...")
+        print("\ncorrectly ✔ ")
         break
     else:
-        print("Error")
-a = float(input("\nEnter the first number: "))
-b = float(input("Enter the second number: "))
+        print(Fore.RED)
+        print("\nError...")
+print(Fore.MAGENTA)
+name = input("\nEnter you name: ")
+age = input("Enter you age: ")
 
-quest = input("What the operation ? (+,-): ")
+print("\nHello," + name )
 
-if quest == "+":
-    c = a + b 
-    print("Answer: " + str(c))
-elif quest == "-":
-    c = a - b 
-    print("Answer: " + str(c))
+if int(age) < 18:
+    print(Fore.RED)
+    print("\nYou are not an adult!")
+elif int(age) >= 18:
+    print(Fore.GREEN)
+    print("\nYou are an adult ✔")
 else:
+    print(Fore.RED)
     print("Error")
+
+input("\n~tap to next~")
+print(Fore.MAGENTA)
+number1 = float(input("\nEnter the first number: "))
+number2 = float(input("Enter the second number: "))
+
+quest1 = input("\nWhat the operation? (+,-,*,/,**): ")
+
+if quest1 == "+":
+    result1 = number1 + number2
+    print(Fore.GREEN)
+    print("\nAnswer :" + str(result1))
+elif quest1 == "-":
+    result1 = number1 - number2
+    print("\nAnswer: " + str(result1))
+elif quest1 == "*":
+    result1 = number1 * number2
+    print("\nAnswer: " + str(result1))
+elif quest1 == "/":
+    result1 = number1 / number2
+    print("\nAnswer: " + str(result1))
+elif quest1 == "**":
+    result1 = number1 ** number2
+    print("\nAnswer: " + str(result1))
+else:
+    print(Fore.RED)
+    print("Error..")
